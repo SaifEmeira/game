@@ -12,7 +12,7 @@ export class Info {
       this.getDetails(id);
    }
 
-  async getDetails(idGames) {
+  async getDetails(gameId) {
       const loading = document.querySelector(".loading_screen");
       loading.classList.remove("d-none");
 
@@ -24,7 +24,7 @@ export class Info {
          },
       };
 
-       fetch(`https://free-to-play-games-database.p.rapidapi.com/api/game?id=${idGames}`, options)
+       fetch(`https://free-to-play-games-database.p.rapidapi.com/api/game?id=${gameId}`, options)
       .then((response) => response.json())
       .then((response) => this.ui.displayDetails(response))
       .catch((err) => console.error(err))

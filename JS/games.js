@@ -5,8 +5,8 @@ export class Games {
    constructor() {
       this.getGames("mmorpg");
 
-      document.querySelectorAll(".navbar-links a").forEach((link) => {
-         link.addEventListener("click", (e) => {
+      document.querySelectorAll(".navbar-links a").forEach((anchor) => {
+         anchor.addEventListener("click", (e) => {
             document.querySelector(".navbar-links .active").classList.remove("active");
             e.target.classList.add("active");
             this.getGames(e.target.dataset.category);
@@ -39,15 +39,15 @@ export class Games {
    }
 
    cardAction() {
-      document.querySelectorAll(".card").forEach((item) => {
-         item.addEventListener("click", () => {
-            this.showDetails(item.dataset.id);
+      document.querySelectorAll(".card").forEach((card) => {
+         card.addEventListener("click", () => {
+            this.showDetails(card.dataset.id);
          });
       });
    }
 
-   showDetails(idGame) {
-      const details = new Info(idGame);
+   showDetails(gameId) {
+      const details = new Info(gameId);
       document.querySelector(".game-library").classList.add("d-none");
       document.querySelector(".game-info").classList.remove("d-none");
    }
